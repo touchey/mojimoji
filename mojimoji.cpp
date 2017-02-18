@@ -342,8 +342,11 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE_API__mojimoji
 #include "string.h"
 #include "stdlib.h"
-#include <tr1/unordered_map>
-#ifdef _OPENMP
+#if __has_include(<tr1/unordered_map>)
+    #include <tr1/unordered_map>
+#else
+	#include <unordered_map>
+#endif#ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
 
